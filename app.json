@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "buildType": "apk",
+      "package": "com.l2xu.mensa_app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "adccd17c-c164-4456-b5c1-858b74f962ce"
+      }
     }
   }
 }

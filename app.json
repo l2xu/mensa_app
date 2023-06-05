@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "mensa_app",
+    "name": "Unofficial Mensa App",
     "slug": "mensa_app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/canteen.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/fav.png",
         "backgroundColor": "#ffffff"
       },
       "buildType": "apk",

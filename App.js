@@ -5,8 +5,11 @@ import Card from "./components/Card";
 
 export default function App() {
   const [mensaData, setMensaData] = useState();
+  const [loading, setLoading] = useState(true);
 
-  fetchData();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   async function fetchData() {
     try {
@@ -20,7 +23,9 @@ export default function App() {
       );
 
       const data = await response.json();
+
       setMensaData(data);
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -30,18 +35,14 @@ export default function App() {
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text>WR </Text>
           <View>
-            <Image
-              source={require("./assets/hs_harz_logo.png")}
-              style={styles.img}
-            />
-            <Text>Unofficial Mensa App</Text>
+            <Image source={require("./assets/logo.png")} style={styles.img} />
+            <Text  style={styles.titel}>Unofficial Mensa App</Text>
           </View>
-
-          <Text>INFO</Text>
         </View>
         <View style={styles.content}>
+          {loading && <Text style={styles.date}>Loading...</Text>}
+
           {mensaData &&
             mensaData.map((day) => {
               return (
@@ -52,9 +53,7 @@ export default function App() {
                   })}
                 </View>
               );
-            })}{" "}
-          : <Text>Loading...</Text>
-          <Card />
+            })}
         </View>
 
         <StatusBar style="auto" />
@@ -72,13 +71,19 @@ const styles = StyleSheet.create({
   header: {
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
+
   },
 
   img: {
-    width: "100%",
+    width: 300,
+    height: 50,
   },
 
+  titel: {
+ 
+    textAlign: "center",
+  },
   content: {
     marginTop: 30,
   },
